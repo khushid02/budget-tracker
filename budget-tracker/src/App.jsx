@@ -35,13 +35,13 @@ export default function App() {
     }
 
     const newTransaction = {
-      id: Date.now(),
-      amount: parseFloat(amount),
-      description,
-      category,
-      type,
-      date: new Date().toLocaleDateString()
-    };
+  id: Date.now(),
+  amount: parseFloat(amount),
+  description,
+  category: type === 'expense' ? category : null,  // ← Only add category for expenses
+  type,
+  date: new Date().toLocaleDateString()
+};
 
     setTransactions([newTransaction, ...transactions]);
     setAmount('');
